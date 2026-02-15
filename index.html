@@ -2,60 +2,121 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Пригласительное на свадьбу Екатерины и Владислава</title>
-    <link rel="stylesheet" href="css/normalize.css">
-    <link rel="stylesheet" href="css/style.css">
-
+    <title>Свадьба | Имя & Имя</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #fdf6f0, #f8e8dd);
+            color: #4a4a4a;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        .header {
+            margin-bottom: 50px;
+        }
+        .names {
+            font-size: 48px;
+            font-weight: 300;
+            margin: 20px 0;
+            color: #b76e79;
+        }
+        .date {
+            font-size: 24px;
+            margin: 20px 0;
+            border-top: 2px solid #d4b2a7;
+            border-bottom: 2px solid #d4b2a7;
+            padding: 20px 0;
+        }
+        .section {
+            margin: 40px 0;
+            padding: 20px;
+            background: rgba(255,255,255,0.5);
+            border-radius: 10px;
+        }
+        .button {
+            display: inline-block;
+            background: #b76e79;
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 18px;
+            margin-top: 20px;
+        }
+        .timer {
+            font-size: 36px;
+            font-weight: bold;
+            color: #b76e79;
+        }
+        @media (max-width: 600px) {
+            .names { font-size: 36px; }
+        }
+    </style>
 </head>
 <body>
-    <main>
-        <p class="hint">Нажмите на картинку<span class="hint-icon"></span></p>
-        <div class="container">
-            <div class="card" id="card">
-                <div class="front">
-                    <div class="text">
-                        <p class="front-name-bride">Екатерина</p>
-                        <p class="front-name-ampersand">&</p>
-                        <p class="front-name-groom">Владислав</p>
-                        <p class="front-date">17.04.2021</p>
-                    </div>
-                    <img width="600" height="750" src="img/bg-front.png" alt="">
-                    <footer class="front-footer">
-                        <p class="front-footer-text">Приглашение на свадьбу</p>
-                    </footer>
-                </div>
-                <div class="back">
-                    <header class="back-header">
-                        <span id="sex">Дорогой</span>
-                        <br>
-                        <span id="name">Гость</span>!
-                    </header>
-                    <p class="text-1">
-                        Мы рады сообщить Вам, что 17.04.2021 состоится самое главное торжество
-                        в нашей жизни – день нашей свадьбы! Будем счастливы видеть Вас на регистрации
-                        брака и торжестве, посвященному этому событию.
-                    </p>
-                    <p class="text-2">
-                        Регистрация состоится в отделе ЗАГС Приморского района в 14:30 по адресу
-                        ул. Стародеревенская, д. 5
-                    </p>
-                    <p class="text-3">
-                        Начало свадебного торжества в 16:00 в банкетном зале "Фламбе" по адресу:
-                        наб. канала Грибоедова, д. 164
-                    </p>
-                    <footer class="back-footer">
-                        <p class="back-footer-text">Ваши Владислав и Екатерина</p>
-                    </footer>
-                    <img width="600" height="870" src="img/bg-back.png" alt="">
-                </div>
-            </div>
+    <div class="container">
+        <div class="header">
+            <h1 class="names">Анна & Сергей</h1>
+            <p>приглашают вас разделить с ними радость</p>
         </div>
-    </main>
-
-    <script src="js/jquery.min.js"></script>
-    <script src="js/jquery.flip.min.js"></script>
-    <script src="js/main.js"></script>
+        
+        <div class="date">
+            <h2>17 июля 2026 · 16:00</h2>
+            <p>Екатеринбург, Дворец бракосочетания</p>
+        </div>
+        
+        <div class="section">
+            <h3>До важного дня осталось:</h3>
+            <div class="timer" id="timer"></div>
+        </div>
+        
+        <div class="section">
+            <h3>Программа дня</h3>
+            <p><strong>16:00</strong> — Торжественная регистрация в ЗАГСе</p>
+            <p><strong>16:30</strong> — Фотопрогулка</p>
+            <p><strong>18:00</strong> — Сбор гостей в ресторане</p>
+            <p><strong>19:00</strong> — Праздничный ужин</p>
+        </div>
+        
+        <div class="section">
+            <h3>Подтверждение присутствия</h3>
+            <p>Пожалуйста, сообщите нам о своем решении до 1 июня 2026</p>
+            <a href="#" class="button">Я приду!</a>
+        </div>
+        
+        <div class="section">
+            <p>📍 Ресторан: уточняется</p>
+            <p>📞 По всем вопросам: +7 (XXX) XXX-XX-XX</p>
+        </div>
+    </div>
+    
+    <script>
+        // Таймер обратного отсчета
+        const weddingDate = new Date('2026-07-17T16:00:00').getTime();
+        
+        const timer = setInterval(function() {
+            const now = new Date().getTime();
+            const distance = weddingDate - now;
+            
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            
+            document.getElementById('timer').innerHTML = days + 'д ' + hours + 'ч ' + minutes + 'м ' + seconds + 'с';
+            
+            if (distance < 0) {
+                clearInterval(timer);
+                document.getElementById('timer').innerHTML = 'Свадьба сегодня!';
+            }
+        }, 1000);
+    </script>
 </body>
 </html>
