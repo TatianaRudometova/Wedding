@@ -53,19 +53,18 @@ section:last-child {
 }
 
 /* ШАПКА / ХЕРО */
-<!-- ГЛАВНЫЙ ЭКРАН С CSS-КОНВЕРТОМ -->
+<!-- ГЛАВНЫЙ ЭКРАН С КОНВЕРТОМ-РОМБОМ -->
 <section class="hero">
     <!-- Полноэкранный конверт -->
     <div class="envelope-fullscreen" id="envelope">
-        <!-- Верхняя часть конверта (клапан) -->
-        <div class="envelope-flap-container">
-            <div class="envelope-flap"></div>
-        </div>
-        
-        <!-- Нижняя часть конверта (основная) -->
-        <div class="envelope-body-container">
-            <div class="envelope-body"></div>
-        </div>
+        <!-- Верхняя левая часть -->
+        <div class="envelope-corner envelope-corner-tl"></div>
+        <!-- Верхняя правая часть -->
+        <div class="envelope-corner envelope-corner-tr"></div>
+        <!-- Нижняя левая часть -->
+        <div class="envelope-corner envelope-corner-bl"></div>
+        <!-- Нижняя правая часть -->
+        <div class="envelope-corner envelope-corner-br"></div>
         
         <!-- Восковая печать -->
         <div class="envelope-seal" id="envelopeSeal">
@@ -99,7 +98,7 @@ section:last-child {
     </div>
 </section>
 
-/* ПОЛНОЭКРАННЫЙ CSS-КОНВЕРТ */
+/* ПОЛНОЭКРАННЫЙ КОНВЕРТ-РОМБ */
 .envelope-fullscreen {
     position: fixed;
     top: 0;
@@ -108,112 +107,81 @@ section:last-child {
     height: 100vh;
     z-index: 1000;
     pointer-events: none;
+    background: #f4e4d8; /* Цвет фона конверта */
 }
 
-/* Контейнер верхней части (клапана) */
-.envelope-flap-container {
+/* Общие стили для углов конверта */
+.envelope-corner {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 55vh;
-    overflow: hidden;
-    transform-origin: top;
-    transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-    z-index: 1002;
-    pointer-events: none;
-}
-
-/* Сам клапан (треугольный) */
-.envelope-flap {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 110%;
-    background: #f4e4d8;
-    background-image: 
-        linear-gradient(45deg, rgba(215, 180, 160, 0.1) 25%, transparent 25%),
-        linear-gradient(-45deg, rgba(215, 180, 160, 0.1) 25%, transparent 25%);
-    background-size: 20px 20px;
-    transform: skewY(-4deg);
-    transform-origin: top left;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-    border-bottom: 2px solid #d4b2a0;
-}
-
-/* Добавляем текстуру бумаги на клапан */
-.envelope-flap::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.2) 0%, transparent 50%);
-}
-
-.envelope-flap::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 20px;
-    background: linear-gradient(to bottom, transparent, rgba(0,0,0,0.05));
-}
-
-/* Контейнер нижней части */
-.envelope-body-container {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 50vh;
-    overflow: hidden;
-    transform-origin: bottom;
+    width: 50%;
+    height: 50%;
     transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
     z-index: 1001;
     pointer-events: none;
 }
 
-/* Нижняя часть конверта */
-.envelope-body {
-    position: absolute;
-    bottom: 0;
+/* Верхний левый угол */
+.envelope-corner-tl {
+    top: 0;
     left: 0;
-    width: 100%;
-    height: 110%;
-    background: #e8d5c8;
-    background-image: 
-        linear-gradient(135deg, rgba(200, 170, 150, 0.1) 25%, transparent 25%),
-        linear-gradient(225deg, rgba(200, 170, 150, 0.1) 25%, transparent 25%);
-    background-size: 20px 20px;
-    transform: skewY(2deg);
-    transform-origin: bottom left;
-    box-shadow: 0 -5px 20px rgba(0,0,0,0.1);
-    border-top: 2px solid #c4a592;
+    background: linear-gradient(135deg, #f4e4d8 0%, #e8d5c8 100%);
+    transform-origin: top left;
+    box-shadow: inset -1px -1px 10px rgba(0,0,0,0.05);
 }
 
-/* Добавляем текстуру на нижнюю часть */
-.envelope-body::before {
+/* Верхний правый угол */
+.envelope-corner-tr {
+    top: 0;
+    right: 0;
+    background: linear-gradient(225deg, #f4e4d8 0%, #e8d5c8 100%);
+    transform-origin: top right;
+    box-shadow: inset 1px -1px 10px rgba(0,0,0,0.05);
+}
+
+/* Нижний левый угол */
+.envelope-corner-bl {
+    bottom: 0;
+    left: 0;
+    background: linear-gradient(45deg, #e8d5c8 0%, #dcc9bc 100%);
+    transform-origin: bottom left;
+    box-shadow: inset -1px 1px 10px rgba(0,0,0,0.05);
+}
+
+/* Нижний правый угол */
+.envelope-corner-br {
+    bottom: 0;
+    right: 0;
+    background: linear-gradient(315deg, #e8d5c8 0%, #dcc9bc 100%);
+    transform-origin: bottom right;
+    box-shadow: inset 1px 1px 10px rgba(0,0,0,0.05);
+}
+
+/* Добавляем текстуру бумаги на все углы */
+.envelope-corner::before {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, transparent 50%);
+    background-image: 
+        repeating-linear-gradient(45deg, 
+            rgba(215, 180, 160, 0.1) 0px, 
+            rgba(215, 180, 160, 0.1) 2px,
+            transparent 2px, 
+            transparent 8px);
 }
 
-.envelope-body::after {
+/* Добавляем линии сгиба */
+.envelope-corner-tl::after {
     content: '';
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 20px;
-    background: linear-gradient(to top, transparent, rgba(0,0,0,0.05));
+    bottom: 0;
+    right: 0;
+    width: 2px;
+    height: 2px;
+    background: linear-gradient(135deg, transparent, #c4a592, transparent);
+    box-shadow: -20px 20px 20px rgba(0,0,0,0.03);
 }
 
 /* Восковая печать */
@@ -222,7 +190,7 @@ section:last-child {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    z-index: 1003;
+    z-index: 1002;
     pointer-events: auto;
     cursor: pointer;
     display: flex;
@@ -249,31 +217,30 @@ section:last-child {
     border: 2px solid #d49c8c;
 }
 
-/* Эффект капель воска по краям */
-.seal-wax::before {
+/* Эффект капель воска */
+.seal-wax::before,
+.seal-wax::after {
     content: '';
     position: absolute;
-    top: -5px;
-    left: 30px;
-    width: 20px;
-    height: 20px;
     background: #b84a3a;
     border-radius: 50%;
     filter: blur(2px);
     opacity: 0.6;
 }
 
+.seal-wax::before {
+    top: -5px;
+    left: 30px;
+    width: 20px;
+    height: 20px;
+}
+
 .seal-wax::after {
-    content: '';
-    position: absolute;
     bottom: -8px;
     right: 40px;
     width: 25px;
     height: 25px;
-    background: #b84a3a;
-    border-radius: 50%;
     filter: blur(3px);
-    opacity: 0.5;
 }
 
 /* Инициалы на печати */
@@ -295,13 +262,119 @@ section:last-child {
     font-size: 16px;
     font-weight: 500;
     letter-spacing: 2px;
-    background: rgba(255, 255, 255, 0.9);
+    background: rgba(255, 255, 255, 0.95);
     padding: 10px 25px;
     border-radius: 50px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
     white-space: nowrap;
     border: 1px solid rgba(183, 110, 121, 0.3);
     backdrop-filter: blur(5px);
+}
+
+.seal-text:hover {
+    background: white;
+    transform: scale(1.05);
+}
+
+/* Анимация открытия - углы разъезжаются */
+.envelope-fullscreen.open .envelope-corner-tl {
+    transform: translate(-100%, -100%);
+}
+
+.envelope-fullscreen.open .envelope-corner-tr {
+    transform: translate(100%, -100%);
+}
+
+.envelope-fullscreen.open .envelope-corner-bl {
+    transform: translate(-100%, 100%);
+}
+
+.envelope-fullscreen.open .envelope-corner-br {
+    transform: translate(100%, 100%);
+}
+
+.envelope-fullscreen.open .envelope-seal {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.5);
+    pointer-events: none;
+    transition: all 0.5s ease;
+}
+
+/* Скрываем конверт после анимации */
+.envelope-fullscreen.hidden {
+    display: none;
+}
+
+/* Добавляем центральный ромб (линии сгиба) */
+.envelope-fullscreen::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #c4a592, #b39482, #c4a592, transparent);
+    transform: translateY(-50%);
+    z-index: 1003;
+    pointer-events: none;
+}
+
+.envelope-fullscreen::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(180deg, transparent, #c4a592, #b39482, #c4a592, transparent);
+    transform: translateX(-50%);
+    z-index: 1003;
+    pointer-events: none;
+}
+
+/* Основное содержимое */
+.hero-content {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease 0.3s, transform 0.8s ease 0.3s;
+    pointer-events: none;
+    position: relative;
+    z-index: 10;
+}
+
+.hero-content.visible {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: all;
+}
+
+.hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: linear-gradient(135deg, #fff9f5 0%, #fef0e9 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Эффект свечения для печати */
+@keyframes glow {
+    0% { box-shadow: 0 10px 30px rgba(183, 110, 121, 0.3), inset 0 -5px 10px rgba(0,0,0,0.2), inset 0 5px 10px rgba(255,215,200,0.3); }
+    50% { box-shadow: 0 15px 40px rgba(183, 110, 121, 0.5), inset 0 -5px 10px rgba(0,0,0,0.2), inset 0 5px 15px rgba(255,215,200,0.5); }
+    100% { box-shadow: 0 10px 30px rgba(183, 110, 121, 0.3), inset 0 -5px 10px rgba(0,0,0,0.2), inset 0 5px 10px rgba(255,215,200,0.3); }
+}
+
+.seal-wax {
+    animation: glow 3s infinite;
+}
+
+.envelope-seal:hover .seal-wax {
+    animation: none;
+    transform: scale(1.05);
+    box-shadow: 0 20px 40px rgba(183, 110, 121, 0.5);
 }
 
 .seal-text:hover {
