@@ -18,49 +18,50 @@
 </head>
 <body>
     <div class="container">
-        <!-- ГЛАВНЫЙ ЭКРАН С ЭФФЕКТОМ КОНВЕРТА -->
-<!-- ГЛАВНЫЙ ЭКРАН С ПОЛНОЭКРАННЫМ КОНВЕРТОМ -->
-<section class="hero">
-    <!-- Полноэкранный конверт -->
-    <div class="envelope-fullscreen" id="envelope">
-        <!-- Верхняя часть конверта -->
-        <div class="envelope-top"></div>
-        
-        <!-- Нижняя часть конверта -->
-        <div class="envelope-bottom"></div>
-        
-        <!-- Печать посередине -->
-        <div class="envelope-seal" id="envelopeSeal">
-            <i class="fas fa-envelope"></i>
-            <p>Нажмите, чтобы открыть</p>
-        </div>
-    </div>
-    
-    <!-- Основное содержимое (изначально скрыто) -->
-    <div class="hero-content" id="heroContent">
-        <h1 class="hero-names">Дмитрий<br>& Татьяна</h1>
-        
-        <!-- МЕСТО ДЛЯ ВАШЕГО ФОТО -->
-        <div class="hero-photo">
-            <!-- КОГДА БУДЕТ ФОТО - РАЗКОММЕНТИРУЙТЕ СТРОКУ НИЖЕ -->
-            <!-- <img src="images/our-photo.jpg" alt="Дмитрий и Татьяна"> -->
+        <!-- ГЛАВНЫЙ ЭКРАН С PNG-КОНВЕРТОМ -->
+        <section class="hero">
+            <!-- Затемняющий фон (изначально виден) -->
+            <div class="envelope-overlay" id="envelopeOverlay"></div>
             
-            <!-- ЭТО ЗАГЛУШКА, ПОКА НЕТ ФОТО -->
-            <div class="hero-photo-placeholder">
-                <i class="fas fa-heart"></i>
-                <span>Ваше фото</span>
+            <!-- Конверт -->
+            <div class="envelope-fullscreen" id="envelope">
+                <!-- Верхняя часть конверта -->
+                <div class="envelope-top" id="envelopeTop" style="background-image: url('images/top_convert_print.png');"></div>
+                
+                <!-- Нижняя часть конверта -->
+                <div class="envelope-bottom" id="envelopeBottom" style="background-image: url('images/bottom_convert.png');"></div>
+                
+                <!-- Область для клика (прозрачная, чтобы ловить события) -->
+                <div class="envelope-click-area" id="envelopeClickArea">
+                    <div class="click-hint">
+                        <i class="fas fa-hand-pointer"></i>
+                        <p>Нажмите, чтобы открыть</p>
+                    </div>
+                </div>
             </div>
-        </div>
-        
-        <div class="hero-date">17.07.2026 · 16:00</div>
-        <p class="hero-subtitle">Приглашаем вас разделить с нами радость этого дня</p>
-    </div>
-    
-    <div class="hero-scroll" id="scrollIndicator" style="display: none;">
-        <i class="fas fa-chevron-down"></i>
-        <p>Листайте вниз</p>
-    </div>
-</section>
+            
+            <!-- Основное содержимое (изначально скрыто) -->
+            <div class="hero-content" id="heroContent">
+                <h1 class="hero-names">Дмитрий<br>& Татьяна</h1>
+                
+                <!-- МЕСТО ДЛЯ ВАШЕГО ФОТО -->
+                <div class="hero-photo">
+                    <!-- <img src="images/our-photo.jpg" alt="Дмитрий и Татьяна"> -->
+                    <div class="hero-photo-placeholder">
+                        <i class="fas fa-heart"></i>
+                        <span>Ваше фото</span>
+                    </div>
+                </div>
+                
+                <div class="hero-date">17.07.2026 · 16:00</div>
+                <p class="hero-subtitle">Приглашаем вас разделить с нами радость этого дня</p>
+            </div>
+            
+            <div class="hero-scroll" id="scrollIndicator" style="display: none;">
+                <i class="fas fa-chevron-down"></i>
+                <p>Листайте вниз</p>
+            </div>
+        </section>
         
         <!-- ТАЙМЕР -->
         <section class="timer-section">
