@@ -113,13 +113,13 @@ section:last-child {
     pointer-events: none;
 }
 
-/* Верхняя часть конверта - среднее наложение (52vh) */
+/* Верхняя часть конверта - сильное наложение (55vh) */
 .envelope-top {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    height: 52vh; /* Чуть выше половины для наложения */
+    height: 55vh; /* Сильное наложение */
     background-image: url('images/top.png');
     background-size: cover;
     background-position: center bottom;
@@ -128,8 +128,8 @@ section:last-child {
     transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
     z-index: 1002;
     pointer-events: none;
-    /* Тень для объема */
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    /* Тень для объема - без границ наложения */
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.25);
 }
 
 /* Нижняя часть конверта */
@@ -147,8 +147,8 @@ section:last-child {
     transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
     z-index: 1001;
     pointer-events: none;
-    /* Тень для объема */
-    box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.15);
+    /* Тень для объема - без границ наложения */
+    box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.2);
 }
 
 /* Область для клика (прозрачная, занимает весь экран) */
@@ -166,7 +166,7 @@ section:last-child {
 /* Текст подсказки (статичный, всегда виден) */
 .click-hint {
     position: absolute;
-    bottom: 30px; /* Отступ от нижнего края */
+    bottom: 30px;
     left: 50%;
     transform: translateX(-50%);
     background: rgba(255, 255, 255, 0.95);
@@ -178,7 +178,7 @@ section:last-child {
     gap: 10px;
     border: 1px solid rgba(183, 110, 121, 0.3);
     z-index: 1004;
-    pointer-events: none; /* Текст не мешает кликать по области */
+    pointer-events: none;
     animation: gentle-float 3s infinite ease-in-out;
 }
 
