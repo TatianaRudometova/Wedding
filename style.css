@@ -140,65 +140,134 @@ section:last-child {
     60% {transform: translateY(-10px);}
 }
 
-/* СТИЛИ ДЛЯ КОНВЕРТА */
-.envelope {
-    position: relative;
-    width: 300px;
-    height: 200px;
-    margin: 0 auto 40px;
-    cursor: pointer;
-    transition: transform 0.3s;
-    z-index: 20;
+/* ПОЛНОЭКРАННЫЙ КОНВЕРТ */
+.envelope-fullscreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 1000;
+    pointer-events: none; /* Чтобы клик проходил через части, но не через печать */
 }
 
-.envelope:hover {
-    transform: scale(1.02);
-}
-
-.envelope-flap {
+/* Верхняя часть конверта */
+.envelope-top {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    height: 0;
-    border-left: 150px solid transparent;
-    border-right: 150px solid transparent;
-    border-bottom: 100px solid #e6c9b6;
+    height: 45vh;
+    background: linear-gradient(145deg, #f8e1d4 0%, #e6c9b6 100%);
+    border-bottom: 2px solid #d4a58c;
     transform-origin: top;
     transition: transform 0.8s ease-in-out;
-    z-index: 22;
+    z-index: 1002;
+    pointer-events: none;
 }
 
-.envelope-body {
+/* Нижняя часть конверта */
+.envelope-bottom {
     position: absolute;
-    top: 0;
+    bottom: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: 45vh;
+    background: linear-gradient(145deg, #e6c9b6 0%, #d4b2a0 100%);
+    border-top: 2px solid #d4a58c;
+    transform-origin: bottom;
+    transition: transform 0.8s ease-in-out;
+    z-index: 1001;
+    pointer-events: none;
+}
+
+/* Печать (центр) */
+.envelope-seal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 200px;
+    height: 200px;
     background: #f0d9cc;
-    border-radius: 10px;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    border-radius: 50%;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    z-index: 21;
+    box-shadow: 0 10px 30px rgba(183, 110, 121, 0.3);
+    border: 3px solid white;
+    z-index: 1003;
+    cursor: pointer;
+    pointer-events: auto; /* Только печать кликабельна */
+    transition: all 0.3s ease;
 }
 
-.envelope-content {
-    text-align: center;
+.envelope-seal:hover {
+    transform: translate(-50%, -50%) scale(1.05);
+    box-shadow: 0 15px 40px rgba(183, 110, 121, 0.4);
+}
+
+.envelope-seal i {
+    font-size: 64px;
     color: #b76e79;
-}
-
-.envelope-content i {
-    font-size: 48px;
     margin-bottom: 15px;
-    display: block;
 }
 
-.envelope-content p {
-    font-size: 16px;
+.envelope-seal p {
+    font-size: 18px;
+    color: #b76e79;
     font-weight: 500;
-    letter-spacing: 1px;
+    text-align: center;
+    padding: 0 20px;
+}
+
+/* Анимация открытия */
+.envelope-fullscreen.open .envelope-top {
+    transform: translateY(-100%);
+}
+
+.envelope-fullscreen.open .envelope-bottom {
+    transform: translateY(100%);
+}
+
+.envelope-fullscreen.open .envelope-seal {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.5);
+    pointer-events: none;
+}
+
+/* Скрываем конверт после анимации */
+.envelope-fullscreen.hidden {
+    display: none;
+}
+
+/* Основное содержимое (изначально скрыто) */
+.hero-content {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease 0.3s, transform 0.8s ease 0.3s;
+    pointer-events: none;
+}
+
+.hero-content.visible {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: all;
+}
+
+/* Корректируем hero для полноэкранного режима */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: linear-gradient(135deg, #fff9f5 0%, #fef0e9 100%);
+    border-bottom: 1px solid #f0e4d8;
+    position: relative;
+    overflow: hidden;
 }
 
 /* Открытый конверт */
