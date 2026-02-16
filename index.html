@@ -19,43 +19,48 @@
 <body>
     <div class="container">
         <!-- ГЛАВНЫЙ ЭКРАН С ЭФФЕКТОМ КОНВЕРТА -->
-        <section class="hero">
-            <!-- Конверт (изначально виден) -->
-            <div class="envelope" id="envelope">
-                <div class="envelope-flap"></div>
-                <div class="envelope-body">
-                    <div class="envelope-content">
-                        <i class="fas fa-envelope-open-text"></i>
-                        <p>Нажмите, чтобы открыть</p>
-                    </div>
-                </div>
-            </div>
+<!-- ГЛАВНЫЙ ЭКРАН С ПОЛНОЭКРАННЫМ КОНВЕРТОМ -->
+<section class="hero">
+    <!-- Полноэкранный конверт -->
+    <div class="envelope-fullscreen" id="envelope">
+        <!-- Верхняя часть конверта -->
+        <div class="envelope-top"></div>
+        
+        <!-- Нижняя часть конверта -->
+        <div class="envelope-bottom"></div>
+        
+        <!-- Печать посередине -->
+        <div class="envelope-seal" id="envelopeSeal">
+            <i class="fas fa-envelope"></i>
+            <p>Нажмите, чтобы открыть</p>
+        </div>
+    </div>
+    
+    <!-- Основное содержимое (изначально скрыто) -->
+    <div class="hero-content" id="heroContent">
+        <h1 class="hero-names">Дмитрий<br>& Татьяна</h1>
+        
+        <!-- МЕСТО ДЛЯ ВАШЕГО ФОТО -->
+        <div class="hero-photo">
+            <!-- КОГДА БУДЕТ ФОТО - РАЗКОММЕНТИРУЙТЕ СТРОКУ НИЖЕ -->
+            <!-- <img src="images/our-photo.jpg" alt="Дмитрий и Татьяна"> -->
             
-            <!-- Основное содержимое (изначально скрыто) -->
-            <div class="hero-content" id="heroContent">
-                <h1 class="hero-names">Дмитрий<br>& Татьяна</h1>
-                
-                <!-- МЕСТО ДЛЯ ВАШЕГО ФОТО -->
-                <div class="hero-photo">
-                    <!-- КОГДА БУДЕТ ФОТО - РАЗКОММЕНТИРУЙТЕ СТРОКУ НИЖЕ -->
-                    <!-- <img src="images/our-photo.jpg" alt="Дмитрий и Татьяна"> -->
-                    
-                    <!-- ЭТО ЗАГЛУШКА, ПОКА НЕТ ФОТО -->
-                    <div class="hero-photo-placeholder">
-                        <i class="fas fa-heart"></i>
-                        <span>Ваше фото</span>
-                    </div>
-                </div>
-                
-                <div class="hero-date">17.07.2026 · 16:00</div>
-                <p class="hero-subtitle">Приглашаем вас разделить с нами радость этого дня</p>
+            <!-- ЭТО ЗАГЛУШКА, ПОКА НЕТ ФОТО -->
+            <div class="hero-photo-placeholder">
+                <i class="fas fa-heart"></i>
+                <span>Ваше фото</span>
             </div>
-            
-            <div class="hero-scroll" id="scrollIndicator" style="display: none;">
-                <i class="fas fa-chevron-down"></i>
-                <p>Листайте вниз</p>
-            </div>
-        </section>
+        </div>
+        
+        <div class="hero-date">17.07.2026 · 16:00</div>
+        <p class="hero-subtitle">Приглашаем вас разделить с нами радость этого дня</p>
+    </div>
+    
+    <div class="hero-scroll" id="scrollIndicator" style="display: none;">
+        <i class="fas fa-chevron-down"></i>
+        <p>Листайте вниз</p>
+    </div>
+</section>
         
         <!-- ТАЙМЕР -->
         <section class="timer-section">
