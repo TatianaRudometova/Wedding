@@ -52,14 +52,6 @@ section:last-child {
     margin: 15px auto 0;
 }
 
-/* ВРЕМЕННАЯ ДИАГНОСТИКА — потом удалим */
-.envelope-top, .envelope-bottom {
-    border: 5px solid red !important;
-    opacity: 1 !important;
-    visibility: visible !important;
-    z-index: 9999 !important;
-}
-
 /* ГЛАВНЫЙ ЭКРАН */
 .hero {
     min-height: 100vh;
@@ -121,13 +113,14 @@ section:last-child {
     pointer-events: none;
 }
 
-/* Верхняя часть конверта */
+/* Верхняя часть конверта - среднее наложение (52vh) */
 .envelope-top {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    height: 50vh;
+    height: 52vh; /* Чуть выше половины для наложения */
+    background-image: url('images/top.png');
     background-size: cover;
     background-position: center bottom;
     background-repeat: no-repeat;
@@ -135,6 +128,8 @@ section:last-child {
     transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
     z-index: 1002;
     pointer-events: none;
+    /* Тень для объема */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
 /* Нижняя часть конверта */
@@ -144,6 +139,7 @@ section:last-child {
     left: 0;
     width: 100%;
     height: 50vh;
+    background-image: url('images/bottom.png');
     background-size: cover;
     background-position: center top;
     background-repeat: no-repeat;
@@ -151,6 +147,8 @@ section:last-child {
     transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
     z-index: 1001;
     pointer-events: none;
+    /* Тень для объема */
+    box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.15);
 }
 
 /* Область для клика (прозрачная, занимает весь экран) */
@@ -163,28 +161,29 @@ section:last-child {
     z-index: 1003;
     pointer-events: auto;
     cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
-/* Подсказка для клика */
+/* Текст подсказки (статичный, всегда виден) */
 .click-hint {
+    position: absolute;
+    bottom: 30px; /* Отступ от нижнего края */
+    left: 50%;
+    transform: translateX(-50%);
     background: rgba(255, 255, 255, 0.95);
-    padding: 15px 30px;
+    padding: 12px 30px;
     border-radius: 60px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.2);
     display: flex;
-    flex-direction: column;
     align-items: center;
-    gap: 8px;
+    gap: 10px;
     border: 1px solid rgba(183, 110, 121, 0.3);
-    transform: translateY(-20px);
-    animation: float 2s infinite ease-in-out;
+    z-index: 1004;
+    pointer-events: none; /* Текст не мешает кликать по области */
+    animation: gentle-float 3s infinite ease-in-out;
 }
 
 .click-hint i {
-    font-size: 32px;
+    font-size: 24px;
     color: #b76e79;
 }
 
@@ -196,9 +195,9 @@ section:last-child {
     margin: 0;
 }
 
-@keyframes float {
-    0%, 100% { transform: translateY(-20px); }
-    50% { transform: translateY(-30px); }
+@keyframes gentle-float {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(-5px); }
 }
 
 /* Анимация открытия */
@@ -700,11 +699,12 @@ section:last-child {
     }
     
     .click-hint {
-        padding: 12px 20px;
+        padding: 10px 20px;
+        bottom: 20px;
     }
     
     .click-hint i {
-        font-size: 24px;
+        font-size: 20px;
     }
     
     .click-hint p {
