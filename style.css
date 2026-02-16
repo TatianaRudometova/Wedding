@@ -52,6 +52,14 @@ section:last-child {
     margin: 15px auto 0;
 }
 
+/* ВРЕМЕННАЯ ДИАГНОСТИКА — потом удалим */
+.envelope-top, .envelope-bottom {
+    border: 5px solid red !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    z-index: 9999 !important;
+}
+
 /* ГЛАВНЫЙ ЭКРАН */
 .hero {
     min-height: 100vh;
