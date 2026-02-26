@@ -1,9 +1,8 @@
 // ===== script.js =====
+// Полный JavaScript файл для свадебного приглашения
 
-// Дожидаемся полной загрузки DOM перед выполнением скриптов
-document.addEventListener('DOMContentLoaded', function() {
-  
-  // ========== АНИМАЦИЯ ПОЯВЛЕНИЯ (REVEAL) ==========
+(function() {
+  // ===== SCROLL ANIMATION =====
   const reveals = document.querySelectorAll('.reveal');
 
   const observer = new IntersectionObserver(entries => {
@@ -16,8 +15,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
   reveals.forEach(el => observer.observe(el));
 
-  // ========== ТАЙМЕР ==========
-  const weddingDate = new Date("July 19, 2025 15:00:00").getTime();
+  // ===== TIMER =====
+  const weddingDate = new Date("July 17, 2026 15:00:00").getTime();
   const timerElement = document.getElementById("timer");
 
   function updateTimer() {
@@ -37,17 +36,24 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   setInterval(updateTimer, 1000);
-  updateTimer(); // вызываем сразу, чтобы не ждать 1 секунду
+  updateTimer();
 
-  // ========== ОБРАБОТКА ФОРМЫ (RSVP) ==========
+  // ===== RSVP FORM HANDLER =====
   const form = document.getElementById("rsvp-form");
   if (form) {
     form.addEventListener("submit", function(e) {
       e.preventDefault();
+
+      const name = this.name.value.trim();
+      const attendance = this.attendance.value;
+
+      if (!name || !attendance) {
+        alert("Пожалуйста, заполните все поля");
+        return;
+      }
+
       alert("Спасибо за ваш ответ!");
-      // Здесь можно добавить отправку данных на сервер, если нужно
-      // form.reset(); // при необходимости раскомментировать
+      this.reset(); // Очистка формы после отправки
     });
   }
-  
-});
+})();
