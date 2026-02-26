@@ -1,4 +1,5 @@
 /* ===== style.css ===== */
+/* Полный файл стилей для свадебного приглашения */
 
 /* ===== RESET ===== */
 * {
@@ -57,7 +58,7 @@ body {
   object-fit: cover;
 }
 
-/* Имена */
+/* Names */
 .hero-name {
   position: absolute;
   top: 50%;
@@ -78,7 +79,7 @@ body {
   transform: translateY(-50%) rotate(90deg);
 }
 
-/* Дата */
+/* Date */
 .hero-date {
   margin-top: 60px;
   font-family: 'Cormorant Garamond', serif;
@@ -95,7 +96,7 @@ body {
   color: #777;
 }
 
-/* Типографика */
+/* ===== TYPOGRAPHY ===== */
 h2 {
   font-family: 'Cormorant Garamond', serif;
   font-size: clamp(28px, 3vw, 38px);
@@ -113,18 +114,19 @@ p {
   margin-bottom: 10px;
 }
 
-/* Таймер */
+/* ===== TIMER ===== */
 .timer {
   font-size: 32px;
   letter-spacing: 3px;
   margin-top: 20px;
 }
 
-/* Форма */
+/* ===== FORM ===== */
 form {
   display: flex;
   flex-direction: column;
   gap: 20px;
+  margin-top: 20px;
 }
 
 input,
@@ -148,7 +150,7 @@ button:hover {
   color: white;
 }
 
-/* Подвал */
+/* ===== FOOTER ===== */
 .footer {
   padding: 60px 20px;
   text-align: center;
@@ -156,7 +158,7 @@ button:hover {
   color: #888;
 }
 
-/* Анимация появления */
+/* ===== SCROLL ANIMATION ===== */
 .reveal {
   opacity: 0;
   transform: translateY(40px);
@@ -168,7 +170,7 @@ button:hover {
   transform: translateY(0);
 }
 
-/* ===== МОБИЛЬНАЯ ВЕРСИЯ ===== */
+/* ===== MOBILE ===== */
 @media (max-width: 768px) {
   .hero-name {
     display: none;
