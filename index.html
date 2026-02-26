@@ -5,12 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Свадебное приглашение | Дмитрий & Татьяна</title>
 
-  <!-- Шрифты -->
+  <!-- Preconnect for fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Inter:wght@300;400&display=swap" rel="stylesheet">
 
-  <!-- Подключение внешнего CSS -->
+  <!-- External CSS -->
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -20,18 +22,17 @@
   <div class="hero-wrapper">
     <div class="hero-name hero-name-left">Дмитрий</div>
     <div class="hero-photo reveal">
-      <!-- Замените IMG_2504.png на актуальный путь к вашему изображению -->
-      <img src="IMG_2504.png" alt="Дмитрий и Татьяна">
+      <img src="tanyadima.jpeg" alt="Дмитрий и Татьяна">
     </div>
     <div class="hero-name hero-name-right">Татьяна</div>
     <div class="hero-date reveal">
-      <div class="hero-date-main">19 | 07 | 2025</div>
-      <div class="hero-date-time">15:00</div>
+      <div class="hero-date-main">17 | 07 | 2026</div>
+      <div class="hero-date-time">16:00</div>
     </div>
   </div>
 </section>
 
-<!-- ПРИВЕТСТВИЕ -->
+<!-- GREETING -->
 <section class="section reveal">
   <div class="container narrow">
     <h2>Дорогие гости</h2>
@@ -42,7 +43,7 @@
   </div>
 </section>
 
-<!-- МЕСТО ПРОВЕДЕНИЯ -->
+<!-- LOCATION -->
 <section class="section reveal">
   <div class="container">
     <h2>Место проведения</h2>
@@ -51,7 +52,7 @@
   </div>
 </section>
 
-<!-- ТАЙМЕР -->
+<!-- TIMER -->
 <section class="section reveal">
   <div class="container narrow">
     <h2>До события осталось</h2>
@@ -59,28 +60,111 @@
   </div>
 </section>
 
-<!-- RSVP / ПОДТВЕРЖДЕНИЕ -->
+<!-- DRESS CODE -->
 <section class="section reveal">
   <div class="container narrow">
-    <h2>Подтвердите присутствие</h2>
-    <form id="rsvp-form">
-      <input type="text" placeholder="Ваше имя" required>
-      <select required>
-        <option value="">Вы будете присутствовать?</option>
-        <option>Да, с радостью</option>
-        <option>К сожалению, нет</option>
-      </select>
-      <button type="submit">Отправить</button>
-    </form>
+    <h2>Дресс-код</h2>
+    <p>
+      Нам будет приятно, если вы поддержите атмосферу праздника
+      в светлых и пастельных оттенках.
+    </p>
   </div>
 </section>
 
-<!-- ПОДВАЛ -->
+<!-- WISHLIST -->
+<section class="section reveal">
+  <div class="container narrow">
+    <h2>Пожелания</h2>
+    <p>
+      Ваше присутствие — главный подарок для нас.
+      Если вы планировали цветы, будем рады, если вы замените их
+      небольшим вкладом в наше свадебное путешествие.
+    </p>
+  </div>
+</section>
+
+<!-- CHAT -->
+<section class="section reveal">
+  <div class="container narrow">
+    <h2>Чат гостей</h2>
+    <p>
+      Для удобства общения и обмена фотографиями
+      будет создан общий чат.
+    </p>
+  </div>
+</section>
+
+<!-- RSVP -->
+<section class="section reveal">
+  <div class="container narrow">
+    <h2>Подтвердите присутствие</h2>
+
+    <form id="rsvp-form">
+      <input type="text" name="name" placeholder="Ваше имя" required>
+      <select name="attendance" required>
+        <option value="">Вы будете присутствовать?</option>
+        <option value="yes">Да, с радостью</option>
+        <option value="no">К сожалению, нет</option>
+      </select>
+      <button type="submit">Отправить</button>
+    </form>
+
+  </div>
+</section>
+
+<!-- CONTACTS -->
+<section class="section reveal">
+  <div class="container narrow">
+    <h2>Контакты</h2>
+    <p>
+      Если у вас возникнут вопросы —
+      свяжитесь с нами любым удобным способом.
+    </p>
+  </div>
+</section>
+
+<!-- FOOTER -->
 <footer class="footer">
   <p>С любовью, Дмитрий и Татьяна</p>
 </footer>
 
-<!-- Подключение внешнего JavaScript -->
+<!-- External JavaScript -->
 <script src="script.js"></script>
+
+<!--
+  ========== ДОКУМЕНТАЦИЯ ==========
+
+  ФАЙЛОВАЯ СТРУКТУРА:
+  ├── index.html          (главный HTML-файл)
+  ├── style.css           (все стили)
+  ├── script.js           (весь JavaScript)
+  └── IMG_2504.png        (фото для hero-блока)
+
+  ОПИСАНИЕ ФАЙЛОВ:
+
+  1. index.html
+     - Содержит семантическую разметку всех секций.
+     - Подключает Google Fonts, внешний CSS и JS.
+     - Каждая секция имеет класс "reveal" для анимации появления.
+     - Форма с именем и выбором присутствия.
+
+  2. style.css
+     - Полный файл стилей (сброс, секции, hero, типографика, таймер, форма).
+     - Адаптив под мобильные устройства (имена скрываются).
+     - Анимация reveal через классы и transitions.
+
+  3. script.js
+     - IntersectionObserver для анимации появления.
+     - Таймер обратного отсчёта до 17 июля 2026, 15:00.
+     - Обработчик отправки формы с валидацией и сбросом.
+
+  КАСТОМИЗАЦИЯ:
+  - Замените текст в секциях под свои нужды.
+  - Измените дату в таймере (строка new Date("...")).
+  - Замените IMG_2504.png на своё изображение.
+  - При необходимости добавьте реальную отправку формы.
+
+  ================================
+-->
 </body>
 </html>
