@@ -3,168 +3,163 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Свадебное приглашение | Дмитрий & Татьяна</title>
+  <title>Дмитрий & Татьяна — 17.07.2026</title>
 
-  <!-- Preconnect for fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Inter:wght@300;400&display=swap" rel="stylesheet">
-
-  <!-- External CSS -->
+  <!-- Подключение шрифтов и стилей -->
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  
+  <!-- Подключение внешнего CSS файла -->
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-wrapper">
-    <div class="hero-name hero-name-left">Дмитрий</div>
-    <div class="hero-photo reveal">
+  <div class="hero-wrapper fade-in">
+    <div class="hero-name left">Дмитрий</div>
+    <div class="hero-photo">
       <img src="tanyadima.jpeg" alt="Дмитрий и Татьяна">
     </div>
-    <div class="hero-name hero-name-right">Татьяна</div>
-    <div class="hero-date reveal">
-      <div class="hero-date-main">17 | 07 | 2026</div>
-      <div class="hero-date-time">16:00</div>
-    </div>
+    <div class="hero-name right">Татьяна</div>
+    <div class="hero-date">17.07.2026 · 16:00</div>
   </div>
 </section>
 
 <!-- GREETING -->
-<section class="section reveal">
-  <div class="container narrow">
-    <h2>Дорогие гости</h2>
-    <p>
-      В этот день мы создаём новую главу нашей истории.
-      Нам важно, чтобы вы были рядом и разделили этот момент.
-    </p>
+<section class="section">
+  <div class="container fade-in">
+    <div class="greeting-title">Дорогие родные и друзья!</div>
+    <div class="greeting-text">
+      Спешим сообщить радостную новость — мы женимся! В этот день мы очень хотим оказаться в окружении самых близких и дорогих для нас людей.
+    </div>
+    <div class="greeting-text">
+      Говорят, что счастье — это когда есть куда идти и где ждут. Для нас таким местом всегда были вы. 
+      А теперь мы строим свой дом, и хотим, чтобы вы первыми вошли в него с любовью и добрыми пожеланиями.
+    </div>
   </div>
 </section>
 
-<!-- LOCATION -->
-<section class="section reveal">
-  <div class="container">
-    <h2>Место проведения</h2>
-    <p class="location-name">Загородный комплекс “White Garden”</p>
-    <p>Московская область</p>
+<!-- CALENDAR -->
+<section class="section">
+  <div class="container fade-in">
+    <div class="section-title">17 июля 2026</div>
+    <div class="calendar">
+      <div class="calendar-month">ИЮЛЬ 2026</div>
+      <div class="calendar-grid">
+        <!-- Дни недели -->
+        <div class="calendar-day">ПН</div>
+        <div class="calendar-day">ВТ</div>
+        <div class="calendar-day">СР</div>
+        <div class="calendar-day">ЧТ</div>
+        <div class="calendar-day">ПТ</div>
+        <div class="calendar-day">СБ</div>
+        <div class="calendar-day">ВС</div>
+        
+        <!-- Даты (пустые ячейки для начала месяца) -->
+        <div></div><div></div><div></div>
+        <div class="calendar-date">1</div>
+        <div class="calendar-date">2</div>
+        <div class="calendar-date">3</div>
+        <div class="calendar-date">4</div>
+        <div class="calendar-date">5</div>
+        <div class="calendar-date">6</div>
+        <div class="calendar-date">7</div>
+        <div class="calendar-date">8</div>
+        <div class="calendar-date">9</div>
+        <div class="calendar-date">10</div>
+        <div class="calendar-date">11</div>
+        <div class="calendar-date">12</div>
+        <div class="calendar-date">13</div>
+        <div class="calendar-date">14</div>
+        <div class="calendar-date">15</div>
+        <div class="calendar-date">16</div>
+        <div class="calendar-date highlight">17</div>
+        <div class="calendar-date">18</div>
+        <div class="calendar-date">19</div>
+        <div class="calendar-date">20</div>
+        <div class="calendar-date">21</div>
+        <div class="calendar-date">22</div>
+        <div class="calendar-date">23</div>
+        <div class="calendar-date">24</div>
+        <div class="calendar-date">25</div>
+        <div class="calendar-date">26</div>
+        <div class="calendar-date">27</div>
+        <div class="calendar-date">28</div>
+        <div class="calendar-date">29</div>
+        <div class="calendar-date">30</div>
+        <div class="calendar-date">31</div>
+      </div>
+    </div>
   </div>
 </section>
 
 <!-- TIMER -->
-<section class="section reveal">
-  <div class="container narrow">
-    <h2>До события осталось</h2>
-    <div id="timer" class="timer"></div>
-  </div>
-</section>
-
-<!-- DRESS CODE -->
-<section class="section reveal">
-  <div class="container narrow">
-    <h2>Дресс-код</h2>
-    <p>
-      Нам будет приятно, если вы поддержите атмосферу праздника
-      в светлых и пастельных оттенках.
-    </p>
-  </div>
-</section>
-
-<!-- WISHLIST -->
-<section class="section reveal">
-  <div class="container narrow">
-    <h2>Пожелания</h2>
-    <p>
-      Ваше присутствие — главный подарок для нас.
-      Если вы планировали цветы, будем рады, если вы замените их
-      небольшим вкладом в наше свадебное путешествие.
-    </p>
-  </div>
-</section>
-
-<!-- CHAT -->
-<section class="section reveal">
-  <div class="container narrow">
-    <h2>Чат гостей</h2>
-    <p>
-      Для удобства общения и обмена фотографиями
-      будет создан общий чат.
-    </p>
-  </div>
-</section>
-
-<!-- RSVP -->
-<section class="section reveal">
-  <div class="container narrow">
-    <h2>Подтвердите присутствие</h2>
-
-    <form id="rsvp-form">
-      <input type="text" name="name" placeholder="Ваше имя" required>
-      <select name="attendance" required>
-        <option value="">Вы будете присутствовать?</option>
-        <option value="yes">Да, с радостью</option>
-        <option value="no">К сожалению, нет</option>
-      </select>
-      <button type="submit">Отправить</button>
-    </form>
-
-  </div>
-</section>
-
-<!-- CONTACTS -->
-<section class="section reveal">
-  <div class="container narrow">
-    <h2>Контакты</h2>
-    <p>
-      Если у вас возникнут вопросы —
-      свяжитесь с нами любым удобным способом.
-    </p>
+<section class="section">
+  <div class="container">
+    <div class="timer-card fade-in">
+      <div class="timer-title">ДО СВАДЬБЫ ОСТАЛОСЬ</div>
+      <div class="timer-grid">
+        <div><div class="timer-number" id="timerDays">00</div><div>дней</div></div>
+        <div><div class="timer-number" id="timerHours">00</div><div>часов</div></div>
+        <div><div class="timer-number" id="timerMinutes">00</div><div>минут</div></div>
+        <div><div class="timer-number" id="timerSeconds">00</div><div>секунд</div></div>
+      </div>
+    </div>
   </div>
 </section>
 
 <!-- FOOTER -->
 <footer class="footer">
-  <p>С любовью, Дмитрий и Татьяна</p>
+  <p>С любовью, Дмитрий и Татьяна ❤️</p>
+  <p>17 июля 2026 · Екатеринбург</p>
 </footer>
 
-<!-- External JavaScript -->
+<!-- Подключение внешнего JS файла -->
 <script src="script.js"></script>
 
-<!--
+<!-- 
   ========== ДОКУМЕНТАЦИЯ ==========
-
-  ФАЙЛОВАЯ СТРУКТУРА:
+  
+  Файловая структура проекта:
+  
   ├── index.html          (главный HTML-файл)
   ├── style.css           (все стили)
   ├── script.js           (весь JavaScript)
-  └── IMG_2504.png        (фото для hero-блока)
-
-  ОПИСАНИЕ ФАЙЛОВ:
-
+  └── tanyadima.jpeg      (фото для hero-блока)
+  
+  Описание файлов:
+  
   1. index.html
-     - Содержит семантическую разметку всех секций.
-     - Подключает Google Fonts, внешний CSS и JS.
-     - Каждая секция имеет класс "reveal" для анимации появления.
-     - Форма с именем и выбором присутствия.
-
+     - Основной HTML-документ
+     - Подключает Google Fonts, Font Awesome
+     - Содержит всю разметку секций
+     - Подключает внешние style.css и script.js
+  
   2. style.css
-     - Полный файл стилей (сброс, секции, hero, типографика, таймер, форма).
-     - Адаптив под мобильные устройства (имена скрываются).
-     - Анимация reveal через классы и transitions.
-
+     - Все CSS-стили (базовые, hero, секции, календарь, таймер)
+     - Анимации и адаптив под мобильные устройства
+  
   3. script.js
-     - IntersectionObserver для анимации появления.
-     - Таймер обратного отсчёта до 17 июля 2026, 15:00.
-     - Обработчик отправки формы с валидацией и сбросом.
-
-  КАСТОМИЗАЦИЯ:
-  - Замените текст в секциях под свои нужды.
-  - Измените дату в таймере (строка new Date("...")).
-  - Замените IMG_2504.png на своё изображение.
-  - При необходимости добавьте реальную отправку формы.
-
+     - Анимация появления при скролле (IntersectionObserver)
+     - Таймер обратного отсчёта до 17 июля 2026 16:00
+     - Логика работы слайдера, формы и других интерактивных элементов
+  
+  4. tanyadima.jpeg
+     - Фотография жениха и невесты для hero-блока
+  
+  Инструкция по использованию:
+  
+  1. Поместите файлы в одной папке
+  2. Добавьте своё фото с именем tanyadima.jpeg (или измените путь в HTML)
+  3. При необходимости измените дату свадьбы в таймере (в script.js)
+  4. Откройте index.html в браузере
+  
+  Важно: весь JavaScript-код из тега <script> в конце HTML-файла 
+  был перенесён в отдельный файл script.js для чистоты структуры.
+  
   ================================
 -->
+
 </body>
 </html>
